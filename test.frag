@@ -13,10 +13,10 @@ void main() {
     vec3 color = vec3(1.0,1.0,1.0);
 
     float circle = circleshape(position,0.37);
-    color -= vec3(circle)*0.5;
+    color = vec3(circle)*0.5;
 
     float circle2 = circleshape(position-vec2(-0.1,+0.1),0.1);
-    color -= vec3(circle2)*0.5;
+    color += vec3(circle2)*0.5;
 
     gl_FragColor = vec4(color, 1.0);
 
