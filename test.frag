@@ -2,8 +2,20 @@
 precision mediump float;
 #endif
 
+uniform vec2 u_resolution;
+
+float circleshape(vec2 position, float radius) {
+    return smoothstep(radius,length(position-vec2(0.5)),0.3);
+}
+
 void main() {
-    vec3 color = vec3(1,1,0);
+    vec2 position = gl_FragCoord.xy / u_resolution;
+    vec3 color = vec3(0.0);
+
+    float circle = circleshape(position,0.4);
+
+    color = vec3(circle);
+
     gl_FragColor = vec4(color, 1.0);
 
 }
